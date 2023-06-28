@@ -2,9 +2,6 @@ import os
 from flask import Flask, flash, request, redirect, make_response, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 from utils.anonymizer import anonymize
-from dotenv import load_dotenv
-
-load_dotenv()
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'CVs/uploads')
@@ -12,7 +9,7 @@ DOWNLOAD_FOLDER = os.path.join(APP_ROOT, 'CVs/downloads')
 ALLOWED_EXTENSIONS = {'txt', 'pdf'}
 
 app = Flask(__name__)
-# Set the secret key to some random bytes. Keep this really secret!
+
 app.secret_key = os.getenv('FLASK_KEY')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER

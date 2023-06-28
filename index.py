@@ -1,5 +1,6 @@
 import os
 from flask import Flask, flash, request, redirect, make_response, render_template, send_from_directory
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from utils.anonymizer import anonymize
 
@@ -9,7 +10,7 @@ DOWNLOAD_FOLDER = os.path.join(APP_ROOT, 'CVs/downloads')
 ALLOWED_EXTENSIONS = {'txt', 'pdf'}
 
 app = Flask(__name__)
-
+CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000  # Limit file size to 16 MB

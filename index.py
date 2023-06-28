@@ -10,7 +10,6 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf'}
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv('FLASK_KEY')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000  # Limit file size to 16 MB
